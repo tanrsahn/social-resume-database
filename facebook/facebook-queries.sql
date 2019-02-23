@@ -1,4 +1,4 @@
-USE facebook;
+USE FACEBOOK;
 
 #Query-1
 SELECT fname,mname,lname,EXTRACT(YEAR FROM CURRENT_TIMESTAMP)-EXTRACT(YEAR FROM birth_date)
