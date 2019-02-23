@@ -4,7 +4,7 @@ USE FACEBOOK;
 
 CREATE TABLE COUNTRY(
 	country_name varchar(45) NOT NULL,
-	
+
 	PRIMARY KEY(country_name)
 );
 
@@ -103,7 +103,7 @@ CREATE TABLE F_PAGE(
 	e_mail varchar(45),
 	impressium varchar(255),
 	about text,
-    awards text,
+    	awards text,
 	location_id int,
 	category_name varchar(45),
 	profile_id int,
@@ -120,8 +120,8 @@ CREATE TABLE F_PAGE(
 
 CREATE TABLE APPLICATION(
 	application_id int NOT NULL UNIQUE AUTO_INCREMENT,
-    application_name varchar(45) NOT NULL,
-	
+	application_name varchar(45) NOT NULL,
+
 	PRIMARY KEY(application_id)
 );
 
@@ -131,7 +131,7 @@ CREATE TABLE OTHER_ACCOUNTS(
 	profile_id int,
 	
 	FOREIGN KEY(profile_id) REFERENCES F_PROFILE(profile_id) ON UPDATE CASCADE ON DELETE CASCADE,
-    PRIMARY KEY(account_name,account_type)
+    	PRIMARY KEY(account_name,account_type)
 );
 
 CREATE TABLE F_GROUP(
