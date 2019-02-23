@@ -1,4 +1,4 @@
-USE facebook;
+USE FACEBOOK;
 SET SQL_SAFE_UPDATES = 0;
 UPDATE f_user SET activeness=false WHERE user_id=4001;
 UPDATE application SET application_name="facebook" WHERE application_name="fcebook";
