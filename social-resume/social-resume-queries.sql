@@ -24,15 +24,15 @@ WHERE gender="F";
 #Query-5
 SELECT a.sayi
 FROM (SELECT COUNT(*) AS sayi
-		FROM author JOIN s_user ON author.user_id=s_user.user_id
-		WHERE EXTRACT(YEAR FROM s_user.birth_date) BETWEEN 1990 AND 2000
-		GROUP BY author.user_id) AS a;
+	FROM author JOIN s_user ON author.user_id=s_user.user_id
+	WHERE EXTRACT(YEAR FROM s_user.birth_date) BETWEEN 1990 AND 2000
+	GROUP BY author.user_id) AS a;
 		
 #Query-6
 SELECT a.sektor,max(kisi)
 FROM (SELECT s_organization.sector AS sektor ,COUNT(*) AS kisi
-		FROM works_on JOIN s_organization ON works_on.organization_id=s_organization.organization_id
-		GROUP BY works_on.organization_id) AS a;
+	FROM works_on JOIN s_organization ON works_on.organization_id=s_organization.organization_id
+	GROUP BY works_on.organization_id) AS a;
 	
 #Query-7
 SELECT publication.organization_id,sector
@@ -47,7 +47,7 @@ WHERE user_type="premium";
 #Query-10
 SELECT a.country_name,max(a.sayi)
 FROM (SELECT patent.country_name,COUNT(*) AS sayi
-		FROM invents JOIN s_user ON invents.user_id=s_user.user_id
-			JOIN patent ON patent.patent_id=invents.patent_id
-		WHERE gender="F"
-		GROUP BY patent.country_name) AS a;
+	FROM invents JOIN s_user ON invents.user_id=s_user.user_id
+		JOIN patent ON patent.patent_id=invents.patent_id
+	WHERE gender="F"
+	GROUP BY patent.country_name) AS a;
