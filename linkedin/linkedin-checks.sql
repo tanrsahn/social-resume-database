@@ -14,7 +14,7 @@ DELIMITER |
 CREATE TRIGGER connect_exist BEFORE INSERT ON `l_connect`
 FOR EACH ROW
 BEGIN
-    IF EXISTS (SELECT * FROM l_connect WHERE l_connect.user_id=NEW.connect_with_user_id AND l_connect.connect_with_user_id=NEW.user_id)
+    	IF EXISTS (SELECT * FROM l_connect WHERE l_connect.user_id=NEW.connect_with_user_id AND l_connect.connect_with_user_id=NEW.user_id)
 	THEN
 		SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = 'Arkadaşlık zaten mevcut';
 	END IF;
@@ -25,7 +25,7 @@ DELIMITER |
 CREATE TRIGGER manager_in_group BEFORE INSERT ON `manages`
 FOR EACH ROW
 BEGIN
-    IF EXISTS(
+    	IF EXISTS(
 		SELECT *
 		FROM member_of
 		WHERE 
@@ -45,7 +45,7 @@ DELIMITER |
 CREATE TRIGGER recursive_message BEFORE INSERT ON `message`
 FOR EACH ROW
 BEGIN
-    IF NEW.sender_user_id=NEW.receiver_user_id
+    	IF NEW.sender_user_id=NEW.receiver_user_id
 	THEN
 		SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = 'Kullanıcı kendisine mesaj yollayamaz';
 	END IF;
@@ -56,12 +56,11 @@ DELIMITER |
 CREATE TRIGGER group_count BEFORE INSERT ON `member_of`
 FOR EACH ROW
 BEGIN
-    IF (
+    	IF (
 		SELECT count(*)
 		FROM l_group
-        WHERE l_group.group_id=NEW.group_id
-		GROUP BY l_group.group_id
-        )>300
+        	WHERE l_group.group_id=NEW.group_id
+		GROUP BY l_group.group_id)>300
 	THEN
 		SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = 'Kullanıcı 300 den fazla gruba katılamaz';
 	END IF;
