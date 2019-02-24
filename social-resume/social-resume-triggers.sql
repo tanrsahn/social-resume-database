@@ -41,11 +41,11 @@ DELIMITER |
 CREATE TRIGGER auto_likeable_status BEFORE INSERT ON s_status
 FOR EACH ROW BEGIN 
 	IF NEW.likeable_object_id IS NULL
-    THEN
+    	THEN
 		SET @auto_id := (SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES
 				 WHERE TABLE_NAME='likeable_object' AND TABLE_SCHEMA=DATABASE()); 
 		INSERT INTO likeable_object VALUES(null);
-    	SET NEW.likeable_object_id=@auto_id;
+    		SET NEW.likeable_object_id=@auto_id;
 	END IF;
 END|
 DELIMITER ;
@@ -55,11 +55,11 @@ DELIMITER |
 CREATE TRIGGER auto_likeable_page BEFORE INSERT ON s_page
 FOR EACH ROW BEGIN 
 	IF NEW.likeable_object_id IS NULL
-    THEN
+    	THEN
 		SET @auto_id := (SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES
 				 WHERE TABLE_NAME='likeable_object' AND TABLE_SCHEMA=DATABASE()); 
 		INSERT INTO likeable_object VALUES(null);
-    	SET NEW.likeable_object_id=@auto_id;
+    		SET NEW.likeable_object_id=@auto_id;
 	END IF;
 END|
 DELIMITER ;
@@ -69,11 +69,11 @@ DELIMITER |
 CREATE TRIGGER auto_likeable_comment BEFORE INSERT ON s_comment
 FOR EACH ROW BEGIN 
 	IF NEW.likeable_object_id IS NULL
-    THEN
+    	THEN
 		SET @auto_id := (SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES
 				 WHERE TABLE_NAME='likeable_object' AND TABLE_SCHEMA=DATABASE()); 
 		INSERT INTO likeable_object VALUES(null);
-    	SET NEW.likeable_object_id=@auto_id;
+    		SET NEW.likeable_object_id=@auto_id;
 	END IF;
 END|
 DELIMITER ;
@@ -83,11 +83,11 @@ DELIMITER |
 CREATE TRIGGER auto_community_page BEFORE INSERT ON s_page
 FOR EACH ROW BEGIN 
 	IF NEW.community_id IS NULL
-    THEN
+	THEN
 		SET @auto_id := (SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES
 				 WHERE TABLE_NAME='community' AND TABLE_SCHEMA=DATABASE()); 
 		INSERT INTO community VALUES(null);
-    	SET NEW.community_id=@auto_id;
+		SET NEW.community_id=@auto_id;
 	END IF;
 END|
 DELIMITER ;
@@ -97,11 +97,11 @@ DELIMITER |
 CREATE TRIGGER auto_community_group BEFORE INSERT ON s_group
 FOR EACH ROW BEGIN 
 	IF NEW.community_id IS NULL
-    THEN
+    	THEN
 		SET @auto_id := (SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES
 				 WHERE TABLE_NAME='community' AND TABLE_SCHEMA=DATABASE()); 
 		INSERT INTO community VALUES(null);
-    	SET NEW.community_id=@auto_id;
+    		SET NEW.community_id=@auto_id;
 	END IF;
 END|
 DELIMITER ;
@@ -111,11 +111,11 @@ DELIMITER |
 CREATE TRIGGER auto_community_event BEFORE INSERT ON s_event
 FOR EACH ROW BEGIN 
 	IF NEW.community_id IS NULL
-    THEN
+    	THEN
 		SET @auto_id := (SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES
 				 WHERE TABLE_NAME='community' AND TABLE_SCHEMA=DATABASE()); 
 		INSERT INTO community VALUES(null);
-    	SET NEW.community_id=@auto_id;
+    		SET NEW.community_id=@auto_id;
 	END IF;
 END|
 DELIMITER ;
@@ -125,11 +125,11 @@ DELIMITER |
 CREATE TRIGGER auto_profile_page BEFORE INSERT ON s_page
 FOR EACH ROW BEGIN 
 	IF NEW.profile_id IS NULL
-    THEN
+    	THEN
 		SET @auto_id := (SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES
 				 WHERE TABLE_NAME='s_profile' AND TABLE_SCHEMA=DATABASE()); 
 		INSERT INTO s_profile VALUES(null);
-    	SET NEW.profile_id=@auto_id;
+    		SET NEW.profile_id=@auto_id;
 	END IF;
 END|
 DELIMITER ;
@@ -139,11 +139,11 @@ DELIMITER |
 CREATE TRIGGER auto_profile_user BEFORE INSERT ON s_user
 FOR EACH ROW BEGIN 
 	IF NEW.profile_id IS NULL
-    THEN
+    	THEN
 		SET @auto_id := (SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES
 				 WHERE TABLE_NAME='s_profile' AND TABLE_SCHEMA=DATABASE()); 
 		INSERT INTO s_profile VALUES(null);
-    	SET NEW.profile_id=@auto_id;
+    		SET NEW.profile_id=@auto_id;
 	END IF;
 END|
 DELIMITER ;
